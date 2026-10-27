@@ -1,0 +1,210 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import './tokens.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/inter-tight/500.css';
+@import '@fontsource/inter-tight/600.css';
+
+/* Tema escuro via data-theme="dark" (substitui a classe .dark do shadcn) */
+@custom-variant dark (&:is([data-theme="dark"] *));
+
+@theme inline {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 734px;
+  --breakpoint-md: 1068px;
+  --breakpoint-lg: 1440px;
+
+  /* Morada */
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-surface: var(--surface);
+  --color-surface-dark: var(--surface-dark);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-on-dark: var(--on-dark);
+  --color-on-dark-2: var(--on-dark-2);
+  --color-verde: var(--verde);
+  --color-verde-strong: var(--verde-strong);
+  --color-verde-soft: var(--verde-soft);
+  --color-on-verde: var(--on-verde);
+  --color-ouro: var(--ouro);
+  --color-ouro-ink: var(--ouro-ink);
+  --color-ouro-soft: var(--ouro-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-card: 28px;
+  --radius-pill: 999px;
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --shadow-float: var(--shadow-float);
+  --font-display: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading: var(--font-display);
+
+  /* shadcn (valores vêm dos aliases em tokens.css) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-bg text-ink font-sans;
+  }
+  :focus-visible {
+    outline: 2px solid var(--verde);
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .t-hero {
+    font-family: var(--font-display);
+    font-size: 104px;
+    line-height: 100px;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+  }
+  .t-section {
+    font-family: var(--font-display);
+    font-size: 56px;
+    line-height: 60px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+  .t-section-xl {
+    font-family: var(--font-display);
+    font-size: 80px;
+    line-height: 80px;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+  }
+  .t-title {
+    font-family: var(--font-display);
+    font-size: 32px;
+    line-height: 36px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .t-stat {
+    font-family: var(--font-display);
+    font-size: 56px;
+    line-height: 56px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+  }
+  .t-headline {
+    font-family: var(--font-sans);
+    font-size: 21px;
+    line-height: 28px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .t-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 21px;
+    line-height: 25px;
+    font-weight: 600;
+  }
+  .t-lead {
+    font-family: var(--font-sans);
+    font-size: 21px;
+    line-height: 30px;
+    font-weight: 400;
+  }
+  .t-body {
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 25px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .t-body-sm {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+  .t-caption {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 733px) {
+    .t-hero {
+      font-size: 56px;
+      line-height: 58px;
+    }
+    .t-section {
+      font-size: 40px;
+      line-height: 44px;
+    }
+    .t-section-xl {
+      font-size: 48px;
+      line-height: 50px;
+    }
+    .t-title {
+      font-size: 28px;
+      line-height: 32px;
+    }
+    .t-stat {
+      font-size: 44px;
+      line-height: 44px;
+    }
+    .t-eyebrow {
+      font-size: 17px;
+      line-height: 21px;
+    }
+    .t-lead {
+      font-size: 19px;
+      line-height: 28px;
+    }
+  }
+
+  /* Telas do app: títulos com peso 500 */
+  .app-scope :is(.t-hero, .t-section, .t-section-xl, .t-title, .t-stat, .t-headline) {
+    font-weight: 500;
+  }
+}
